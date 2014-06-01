@@ -1,0 +1,26 @@
+#include <stdio.h>
+ #include <conio.h>
+ #include <stdlib.h>
+ //汉诺塔递归求解函数，n——为层数；a、b、c——为杆号(字符)
+void move(int n,char a,char b,char c)
+ {
+    if (n==1)
+       printf("%c-->%c\t",a,c);
+    else
+    {
+       move(n-1,a,c,b);
+       printf("%c-->%c\t",a,c);
+       move(n-1,b,a,c);
+    }
+ }
+ //递归方法求：汉诺塔主函数，h——为盘子层数
+void main()
+ {
+    int h;
+    printf("\ninput number: ");
+    scanf("%d",&h);
+    printf("the step to moving %2d diskes:\n",h);
+    move(h,'a','b','c');
+    printf("\n");
+    system("pause");
+ }
